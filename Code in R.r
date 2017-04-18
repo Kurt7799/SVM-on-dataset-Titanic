@@ -27,7 +27,7 @@ result<-read.csv("gender_submission.csv",header=TRUE,sep=",",stringsAsFactors=FA
 result<-within(result,{
                         Survived<-as.factor(Survived)})
 
-fit.svm<-svm(Survived~.,data=extractFeatures(train))
+fit.svm<-svm(train$Survived~.,data=extractFeatures(train))
 
 svm.pred<-predict(fit.svm,extractFeatures(test))
 
